@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+
+      <link rel="stylesheet" href="css/style.css">
+      <title>Local storage</title>
+   </head>
+   <body>
+      <header>
+         <h1>Greeting App</h1>
+      </header>
+
+      <section id="inputArea" class="box">
+         <div class="container">
+            <label class='name'><p>Name</p></label>
+            <form class="form1">
+               <textarea name="userName" class='textNameInput' placeholder="enter your name" rows="2" cols="30"></textarea>
+            </form>
+            <p>No. people greeted: <span class='counter'>0</span></p>
+         </div>
+      </section>
+
+      <section id="inputRadio" class="box">
+         <div class="container">
+            <div class="radioPlace">
+               <h4>Greeting language</h4>
+               <li><label class="">
+                <input type="radio" name="languageType" class="languageType" value="Hello">
+                <span class="label-body">English</span>
+               </label></li>
+               <li><label class="">
+                <input type="radio" name="languageType" class="languageType" value="Halo">
+                <span class="label-body" >Afrikaans</span>
+               </label></li>
+               <li><label class="">
+                <input type="radio" name="languageType" class="languageType" value="Molo">
+                <span class="label-body" >Xhosa</span>
+               </label></li>
+
+            </div>
+         </div>
+      </section>
+
+      <section id="buttomArea" class="box">
+         <div class="container">
+            <div class="Display">
+               <p><span class='greet'></span></p>
+            </div>
+            <button class="button-primary greetBtn" type="button" name="button">Greet</button>
+            <button class="button-primary resetStorageBtn" type="button" name="button">Reset storage</button>
+         </div>
+      </section>
+   </body>
+
+   <script src='js/main.js'></script>
+</html>

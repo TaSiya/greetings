@@ -1,0 +1,59 @@
+/** Global  **/
+body{
+   padding:0;
+   width: 90%;
+   margin:auto;
+   text-align: center;
+   font-size: 22px;
+   line-height: 1.5;
+   font-family: arial, Helvetica, sans-serif;
+   background-color: #eee;
+}
+
+header{
+
+   background-color: #333;
+   display: inline-block;
+   margin-top: 2em;
+   color: yellow;
+}
+
+section{
+   width: 80%;
+   margin: auto;
+}
+
+h1,h2,h3{
+   margin: 0;
+   padding: 0 1em;
+   font-weight:bold;
+}
+
+li{
+   display: inline;
+   margin: 0 0.1em;
+}
+
+textarea{
+   background-color: #000;
+   text-transform: uppercase;
+   text-align: center;
+   color: yellow;
+}
+
+.upper{
+   text-transform: uppercase;
+}
+
+.container{
+
+}
+
+.box{
+
+}
+
+.name{
+   font-weight: bold;
+
+}
