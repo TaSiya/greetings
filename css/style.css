@@ -4,7 +4,7 @@ body{
    width: 90%;
    margin:auto;
    text-align: center;
-   font-size: 22px;
+   font-size: 28px;
    line-height: 1.5;
    font-family: arial, Helvetica, sans-serif;
    background-color: #eee;
@@ -15,7 +15,13 @@ header{
    background-color: #333;
    display: inline-block;
    margin-top: 2em;
-   color: yellow;
+   margin-bottom: 1em;
+   color: #FFF706;
+}
+
+header:hover{
+   background-color: #FFF706;
+   color: #333;
 }
 
 section{
@@ -29,8 +35,15 @@ h1,h2,h3{
    font-weight:bold;
 }
 
+ul{
+   width: 60%;
+   margin: auto;
+}
+
 li{
-   display: inline;
+   display: block;
+   text-align: left;
+   padding: 0.2em 0;
    margin: 0 0.1em;
 }
 
@@ -38,7 +51,41 @@ textarea{
    background-color: #000;
    text-transform: uppercase;
    text-align: center;
-   color: yellow;
+   font-size: 20px;
+   color: #FFF706;
+}
+
+textarea:hover{
+   background-color: #FFF706;
+   color: #000;
+}
+
+button{
+   background-color: #333;
+   color : #FFF706;
+   font-size: 20px;
+   font-weight: bold;
+   padding: 0.5em;
+   margin: 0 1.2em;
+}
+
+button:hover{
+   background-color: #FFF706;
+   color: #333;
+}
+
+footer{
+   font-size: 15px;
+   margin: 1em 0;
+   font-style: italic;
+   background-color:#233;
+   color: #FFF706;
+}
+
+footer:hover{
+   font-weight: bold;
+   background-color:#FFF706;
+   color: #000;
 }
 
 .upper{
@@ -46,7 +93,9 @@ textarea{
 }
 
 .container{
-
+   border: 2px dotted;
+   background-color: #333a;
+   color: #fff;
 }
 
 .box{
