@@ -12,10 +12,16 @@ var languageType = document.querySelector('.languageType');
 var greet = document.querySelector('.greet');
 //global variables
 
+//
+var storage = FactoryStorage();
+
 let userGreeted = 'list 1' ;
+let userData = 'users';
 counter.textContent = localStorage.getItem(userGreeted);
+localStorage.getItem(userData);
+
 greetBtn.addEventListener('click', function(){
-   var name = textNameInput.value;
+  var name = textNameInput.value;
    greet.classList.add('upper')
    var languageTypeCheck = '';
    var checkedRadioBtn = document.querySelector("input[name='languageType']:checked");
@@ -29,32 +35,44 @@ greetBtn.addEventListener('click', function(){
    else{
       greet.textContent = languageTypeCheck + ', '+name;
       textNameInput.value ="";
-      count ++;
-      localStorage.setItem(userGreeted, count);
+      storage.checked(name);
+      localStorage.setItem(userGreeted, storage.counts());
+      localStorage.setItem(userData, storage.userMap());
       counter.textContent = localStorage.getItem(userGreeted);
    }
-
 });
 
 resetStorageBtn.addEventListener('click', function(){
 localStorage.clear();
-count = 0 ;
-counter.textContent = count;
+storage.settedCounts(0);
+counter.textContent = storage.counts();
 });
 
 //functions below
 
 //factory function
-function FactoryNames(){
-  var userGreeted = {};
+function FactoryStorage(){
+  var namesGreeted = {};
   var count = 0 ;
 
+  function checking(name){
+    if(namesGreeted[name] === undefined){
+      updateCount();
+      namesGreeted[name] = updateCount();
+    }
+  }
 
   function getCount(){ return count; }
-  function updateCount(){ count ++; }
+  function setCounts(value){ count = value; }
+  function updateCount(){ count++; }
+
+  function getMap(){ return namesGreeted ; }
 
   return {
     counts : getCount,
-    countUpdate : updateCount
+    countUpdate : updateCount,
+    settedCounts : setCounts,
+    userMap : getMap,
+    checked : checking
   }
 }
