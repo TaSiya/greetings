@@ -66,7 +66,7 @@ function FactoryStorage(){
   function setCounts(value){ count = value; }
   function updateCount(){ count++; }
 
-  function getMap(){ return namesGreeted ; }
+  function getMap(){ return namesGreeted[name] ; }
 
   return {
     counts : getCount,
