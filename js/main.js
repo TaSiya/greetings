@@ -25,7 +25,7 @@ greetBtn.addEventListener('click', function(){
    if(languageTypeCheck ===''){
 
    }
-   
+
    else{
       greet.textContent = languageTypeCheck + ', '+name;
       textNameInput.value ="";
