@@ -81,6 +81,8 @@ footer{
    font-style: italic;
    background-color:#233;
    color: #FFF706;
+
+   bottom: 0;
 }
 
 footer:hover{

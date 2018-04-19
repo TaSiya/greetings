@@ -62,9 +62,6 @@ counter.textContent = 0 ;
 
 });
 
-//functions below
-
-//factory function
 function FactoryStorage(storedData){
   var namesGreeted = {};
   var user = '';
