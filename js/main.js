@@ -13,12 +13,13 @@ var greet = document.querySelector('.greet');
 //global variables
 
 //
-var storage = FactoryStorage();
 
-let userGreeted = 'list 1' ;
-let userData = 'users';
-counter.textContent = localStorage.getItem(userGreeted);
-localStorage.getItem(userData);
+
+
+var storedData = localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')): {};
+var storage = FactoryStorage(storedData);
+
+counter.textContent = storage.userLength();
 
 greetBtn.addEventListener('click', function(){
   var name = textNameInput.value;
@@ -29,50 +30,74 @@ greetBtn.addEventListener('click', function(){
       languageTypeCheck = checkedRadioBtn.value;
    }
    if(languageTypeCheck ===''){
-
+      greet.textContent = 'Select language first';
    }
 
    else{
-      greet.textContent = languageTypeCheck + ', '+name;
-      textNameInput.value ="";
-      storage.checked(name);
-      localStorage.setItem(userGreeted, storage.counts());
-      localStorage.setItem(userData, storage.userMap());
-      counter.textContent = localStorage.getItem(userGreeted);
+      if(name === ''){
+         greet.textContent = 'Please enter your name';
+         greet.style.background='yellow';
+         greet.style.border='2px solid';
+         greet.style.color='#333';
+      }
+      else{
+         greet.style.background='none';
+         greet.style.border='2px solid';
+         greet.style.color='#fff';
+         greet.textContent = languageTypeCheck + ', '+name;
+         textNameInput.value ="";
+         storage.setNames(name);
+         storage.checked();
+         localStorage.setItem('users', JSON.stringify(storage.userMap()));
+         counter.textContent = storage.userLength();
+      }
+
    }
 });
 
 resetStorageBtn.addEventListener('click', function(){
 localStorage.clear();
-storage.settedCounts(0);
-counter.textContent = storage.counts();
+location.reload();
+counter.textContent = 0 ;
+
 });
 
 //functions below
 
 //factory function
-function FactoryStorage(){
+function FactoryStorage(storedData){
   var namesGreeted = {};
-  var count = 0 ;
+  var user = '';
 
-  function checking(name){
-    if(namesGreeted[name] === undefined){
-      updateCount();
-      namesGreeted[name] = updateCount();
-    }
+
+  function setName(value){ user = value; }
+
+  function checking(){
+
+     if(storedData){
+        namesGreeted = storedData;
+     }
+
+     if(user !== ''){
+        if(namesGreeted[user] === undefined){
+          namesGreeted[user] = 0;
+        }
+     }
+     else{
+
+     }
   }
 
-  function getCount(){ return count; }
-  function setCounts(value){ count = value; }
-  function updateCount(){ count++; }
+  function countGreeted(){
+     return Object.keys(storedData).length;
+ }
 
-  function getMap(){ return namesGreeted[name] ; }
+  function getMap(){ return namesGreeted ; }
 
   return {
-    counts : getCount,
-    countUpdate : updateCount,
-    settedCounts : setCounts,
     userMap : getMap,
-    checked : checking
+    checked : checking,
+    userLength :countGreeted,
+    setNames : setName
   }
 }
