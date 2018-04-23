@@ -66,35 +66,29 @@ function FactoryStorage(storedData){
   var namesGreeted = {};
   var user = '';
 
-
   function setName(value){ user = value; }
 
   function checking(){
-
      if(storedData){
         namesGreeted = storedData;
      }
-
      if(user !== ''){
         if(namesGreeted[user] === undefined){
           namesGreeted[user] = 0;
         }
      }
-     else{
-
-     }
   }
 
-  function countGreeted(){
-     return Object.keys(storedData).length;
- }
+  function countGreeted(){ return Object.keys(storedData).length; }
 
   function getMap(){ return namesGreeted ; }
+  function getName(){ return user; }
 
   return {
     userMap : getMap,
     checked : checking,
     userLength :countGreeted,
-    setNames : setName
+    setNames : setName,
+    users : getname
   }
 }
