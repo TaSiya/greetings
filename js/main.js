@@ -89,6 +89,6 @@ function FactoryStorage(storedData){
     checked : checking,
     userLength :countGreeted,
     setNames : setName,
-    users : getname
+    users : getName
   }
 }
